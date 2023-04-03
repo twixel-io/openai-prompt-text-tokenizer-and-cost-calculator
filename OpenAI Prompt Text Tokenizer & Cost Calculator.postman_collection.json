@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "d51821a6-77ef-4675-8834-e8cb636d1f6c",
+		"name": "OpenAI Prompt Text Tokenizer & Cost Calculator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19887804"
+	},
+	"item": [
+		{
+			"name": "{{baseUrl}}/openai/chatgpt/decode",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-RapidAPI-Host",
+						"value": "openai-prompt-text-tokenizer-cost-calculator.p.rapidapi.com",
+						"type": "text"
+					},
+					{
+						"key": "X-RapidAPI-Key",
+						"value": "Your RapidAPI Key Goes Here",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"gpt-4\",\r\n    \"inputType\": \"prompt\",\r\n    \"text\": [\r\n        791,\r\n        1495,\r\n        701,\r\n        1390,\r\n        4037,\r\n        1534,\r\n        323,\r\n        264,\r\n        4037,\r\n        1797,\r\n        6052,\r\n        369,\r\n        13\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/openai/chatgpt/decode",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"openai",
+						"chatgpt",
+						"decode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/openai/chatgpt/encode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-RapidAPI-Host",
+						"value": "openai-prompt-text-tokenizer-cost-calculator.p.rapidapi.com",
+						"type": "text"
+					},
+					{
+						"key": "X-RapidAPI-Key",
+						"value": "Your RapidAPI Key Goes Here",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": \"gpt-4\",\r\n    \"inputType\": \"prompt\",\r\n    \"text\": \"The text your want tokenized and a token count returned for.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/openai/chatgpt/encode",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"openai",
+						"chatgpt",
+						"encode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/openai/chatgpt/models",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-RapidAPI-Host",
+						"value": "openai-prompt-text-tokenizer-cost-calculator.p.rapidapi.com",
+						"type": "text"
+					},
+					{
+						"key": "X-RapidAPI-Key",
+						"value": "Your RapidAPI Key Goes Here",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/openai/chatgpt/models",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"openai",
+						"chatgpt",
+						"models"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://openai-chatgpt-tokenizer-live.twixel.io"
+		}
+	]
+}
