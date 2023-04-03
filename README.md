@@ -4,7 +4,7 @@ This tutorial will guide you on how to use the **OpenAI Prompt Text Tokenizer & 
 
 By default, RapidAPI examples use Node.js and Axios, so this tutorial will provide samples using those. However, you can use many other programming languages and libraries, with samples available on RapidAPI.
 
-Remember to join the [Discord community](https://discord.com/invite/openai) for further assistance and discussions.
+Remember to join the [Discord community](https://discord.gg/E8G6azTQdn) for further assistance and discussions.
 
 ## Getting Started
 
