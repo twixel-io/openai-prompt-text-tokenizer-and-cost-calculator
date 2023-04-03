@@ -118,14 +118,6 @@ This endpoint helps you convert a tokenized string back into its original text f
 {
     "model": "gpt-4",
     "inputType": "prompt",
-    "tokens": 6,
-    "costing": {
-        "promptCostPer1KTokens": 0.03,
-        "promptCostPerToken": 0.000029999999999999997,
-        "completionCostPer1KToken": 0.06,
-        "completionCostPerToken": 0.000059999999999999995,
-        "totalCost": 0.00017999999999999998
-    },
     "text": [
         7927,
         10137,
@@ -153,22 +145,7 @@ const options = {
   data: {
     model: "gpt-4",
     inputType: "prompt",
-    tokens: 6,
-    costing: {
-      promptCostPer1KTokens: 0.03,
-      promptCostPerToken: 0.000029999999999999997,
-      completionCostPer1KToken: 0.06,
-      completionCostPerToken: 0.000059999999999999995,
-      totalCost: 0.00017999999999999998
-    },
-    text: [
-      7927,
-      10137,
-      1495,
-      5900,
-      1618,
-      0
-    ]
+    text: [7927, 10137, 1495, 5900, 1618, 0]
   }
 };
 
