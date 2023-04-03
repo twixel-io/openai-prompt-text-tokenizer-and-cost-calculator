@@ -1,6 +1,6 @@
 # OpenAI Prompt Text Tokenizer & Cost Calculator API Tutorial
 
-This tutorial will guide you on how to use the **OpenAI Prompt Text Tokenizer & Cost Calculator API** via [RapidAPI](https://rapidapi.com/sequ3l/api/openai-prompt-text-tokenizer-cost-calculator). This API is based on the Postman collection and will help you with tokenizing and calculating the cost of text prompts when using OpenAI's ChatGPT API.
+This tutorial will guide you on how to use the **OpenAI Prompt Text Tokenizer & Cost Calculator API** via [RapidAPI](https://bit.ly/openai-prompt-text-tokenizer-cost-calculator). This API is based on the Postman collection and will help you with tokenizing and calculating the cost of text prompts when using OpenAI's ChatGPT API.
 
 By default, RapidAPI examples use Node.js and Axios, so this tutorial will provide samples using those. However, you can use many other programming languages and libraries, with samples available on RapidAPI.
 
@@ -9,7 +9,7 @@ Remember to join the [Discord community](https://discord.com/invite/openai) for 
 ## Getting Started
 
 1. Sign up or log in to [RapidAPI](https://rapidapi.com/).
-2. Subscribe to the [OpenAI Prompt Text Tokenizer & Cost Calculator API](https://rapidapi.com/sequ3l/api/openai-prompt-text-tokenizer-cost-calculator).
+2. Subscribe to the [OpenAI Prompt Text Tokenizer & Cost Calculator API](https://bit.ly/openai-prompt-text-tokenizer-cost-calculator).
 3. Get your RapidAPI Key.
 
 ## API Endpoints
@@ -252,5 +252,122 @@ The response will contain the available models and their pricing details.
 
 - Certain models have extremely big numbers for the **promptCostPerToken** fields, so far it's only applicable to the ADA related models. In this case, it's returned as a floating-point precision number in scientific notation or exponential notation.
 - Models with 0 cost mean that there is no cost information available on OpenAI's website.
+
+
+Here's a another example that includes three functions for each endpoint: `encodeText`, `decodeText`, and `getModels`. You can use these functions to easily interact with the OpenAI Prompt Text Tokenizer & Cost Calculator API.
+
+First, install Axios:
+
+```bash
+npm install axios
+```
+
+Then, create a file called `openai_api.js` and add the following code:
+
+```javascript
+const axios = require("axios");
+
+const rapidAPIKey = "Your RapidAPI Key Goes Here";
+const baseUrl = "https://openai-prompt-text-tokenizer-cost-calculator.p.rapidapi.com";
+
+const headers = {
+  "X-RapidAPI-Host": "openai-prompt-text-tokenizer-cost-calculator.p.rapidapi.com",
+  "X-RapidAPI-Key": rapidAPIKey,
+  "Content-Type": "application/json",
+};
+
+async function encodeText(model, inputType, text) {
+  const options = {
+    method: "POST",
+    url: `${baseUrl}/openai/chatgpt/encode`,
+    headers: headers,
+    data: {
+      model,
+      inputType,
+      text,
+    },
+  };
+
+  try {
+    const response = await axios.request(options);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+async function decodeText(data) {
+  const options = {
+    method: "POST",
+    url: `${baseUrl}/openai/chatgpt/decode`,
+    headers: headers,
+    data: data,
+  };
+
+  try {
+    const response = await axios.request(options);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+async function getModels() {
+  const options = {
+    method: "GET",
+    url: `${baseUrl}/openai/chatgpt/models`,
+    headers: headers,
+  };
+
+  try {
+    const response = await axios.request(options);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+module.exports = {
+  encodeText,
+  decodeText,
+  getModels,
+};
+```
+
+Now you can use these functions in your main file (e.g., `index.js`):
+
+```javascript
+const openaiApi = require("./openai_api");
+
+(async () => {
+  const model = "gpt-4";
+  const inputType = "prompt";
+  const text = "Your prompt text goes here!";
+
+  // Encode text
+  const encodedData = await openaiApi.encodeText(model, inputType, text);
+  console.log("Encoded Data:", encodedData);
+
+  // Decode text
+  const decodedText = await openaiApi.decodeText(encodedData);
+  console.log("Decoded Text:", decodedText);
+
+  // Get models
+  const models = await openaiApi.getModels();
+  console.log("Models:", models);
+})();
+```
+
+You can now run the `index.js` file:
+
+```bash
+node index.js
+```
+
+This will output the results of encoding, decoding, and available models. Don't forget to replace `Your RapidAPI Key Goes Here` with your actual RapidAPI key.
+
 
 That's it! Happy coding!
