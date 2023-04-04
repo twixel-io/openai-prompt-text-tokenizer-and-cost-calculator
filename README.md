@@ -231,7 +231,7 @@ The response will contain the available models and their pricing details.
 - Models with 0 cost mean that there is no cost information available on OpenAI's website.
 
 
-Here's a another example that includes three functions for each endpoint: `encodeText`, `decodeText`, and `getModels`. You can use these functions to easily interact with the OpenAI Prompt Text Tokenizer & Cost Calculator API.
+Here's another example that includes three functions for each endpoint: `encodeText`, `decodeText`, and `getModels`. You can use these functions to easily interact with the OpenAI Prompt Text Tokenizer & Cost Calculator API.
 
 First, install Axios:
 
